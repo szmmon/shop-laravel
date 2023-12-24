@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index()
     {
     return view('users.index', [
-        'users' => User::all() //zastosowanie eloquent - ORM laravela do obslugi baz danych
+        'users' => User::paginate(3) //zastosowanie eloquent - ORM laravela do obslugi baz danych
     ]); // "." odpowiada "/" dla ściezki
     }
 
