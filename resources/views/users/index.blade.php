@@ -21,7 +21,8 @@
       <td>{{$user->name}}</td>
       <td>{{$user->surname}}</td>
       <td>{{$user->phone_number}}</td>
-      <td></td>
+      <td><button class="btn btn-danger sm test-btn" data-id="{{$user->id}}">x</button></td>
+
     </tr>
     @endforeach
   </tbody>
@@ -29,3 +30,4 @@
 {{$users->links()}}
 </div>
 @endsection
+
