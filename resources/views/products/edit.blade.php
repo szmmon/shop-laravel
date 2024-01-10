@@ -71,7 +71,7 @@
                             <label for="image" class="col-md-4 col-form-label text-md-end">Image</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" name="image">
+                                <input id="image" type="file" name="image" class="form-control @error('image') is-invalid @enderror">
 
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
@@ -80,8 +80,9 @@
                                 @enderror
 
                             <div class="row mb-3">
-                            
-                            <img src="{{asset('storage/' . $product->image_path)}}" alt="No product image" lass="img-thumbnail mx-auto d-block">
+                            @if(!is_null($product->image_path))
+                                <img src="{{asset('storage/' . $product->image_path)}}" alt="No product image" lass="img-thumbnail mx-auto d-block">
+                            @endif
 
                             </div>
                             </div>

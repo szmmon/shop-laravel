@@ -72,7 +72,7 @@
                             <label for="image" class="col-md-4 col-form-label text-md-end">Image</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" name="image">
+                                <input id="image" type="file" name="image" class="form-control @error('image') is-invalid @enderror">
 
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
