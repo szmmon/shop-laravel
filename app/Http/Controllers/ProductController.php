@@ -23,9 +23,14 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create():View
     {
         return view('products.create');
+    }
+    
+      public function test1():View
+    {
+        return view('test1');
     }
 
     /**
@@ -34,6 +39,9 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product($request->all());
+                if ($request->hasFile(key:'image')){
+        $product->image_path = $request->file(key:'image')->store(path:'products');
+                }
         $product->save();
         return redirect(route('products.index'));
         }
@@ -64,6 +72,9 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $product->fill($request->all());
+        if ($request->hasFile(key:'image')){
+                $product->image_path = $request->file(key:'image')->store(path:'products');
+        }
         $product->save();
         return redirect(route('products.index'));
 

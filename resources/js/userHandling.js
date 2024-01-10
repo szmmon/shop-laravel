@@ -14,7 +14,7 @@ $(".test-btn").click(function () {
             if (window.location.href.includes("users")) {
                 $.ajax({
                     method: "DELETE",
-                    url: "http://localhost:8000/users/" + $(this).data("id"),
+                    url: "http://shop.test/users/" + $(this).data("id"),
                     // data: {$id = },
                 })
                     .done(function (data) {
@@ -32,7 +32,7 @@ $(".test-btn").click(function () {
             } else if (window.location.href.includes("products")) {
                 $.ajax({
                     method: "DELETE",
-                    url: "http://localhost:8000/products/" + $(this).data("id"),
+                    url: "http://shop.test/products/" + $(this).data("id"),
                     // data: {$id = },
                 })
                     .done(function (data) {

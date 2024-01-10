@@ -8,6 +8,9 @@
             <a href="{{route('products.create')}}" class='float-right'>
                 <button class="btn btn-primary">Add product</button>
             </a>
+            <a href="{{route('products.test1')}}" class='float-right'>
+                <button class="btn btn-primary">Add test</button>
+            </a>
         </div>
     </div>
     <div class="row">
