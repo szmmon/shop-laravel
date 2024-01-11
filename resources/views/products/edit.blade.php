@@ -67,6 +67,25 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="category" class="col-md-4 col-form-label text-md-end">Category</label>
+
+                            <div class="col-md-6">
+                                <select id="categoty_id" class="form-control @error('category_id') is-invalid @enderror" name="category_id">
+                                <option value=" ">None</option>
+                                @foreach($categories as $category)
+                                <option value="{{$category->id}}" @if($product->isSelectedCategory($product->id))selected @endif>{{$category->name}}</option>
+                                
+                                @endforeach
+                                </select>
+                                @error('category_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
                         <div class="row mb-3">
                             <label for="image" class="col-md-4 col-form-label text-md-end">Image</label>
 
@@ -85,7 +104,7 @@
                             @endif
 
                             </div>
-                            </div>
+                        </div>
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
