@@ -12,9 +12,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <script src="{{asset('js/app.js')}}" defer ></script>
 
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/userHandling.js'])
+
+
 </head>
 <body>
     <div id="app">
@@ -78,7 +80,12 @@
             @yield('content')   
         </main>
     </div>
-
+        
+        
+        <script type="text/javascript">
+            @yield('javascript')
+        </script>
+            @yield('js-files')
 </body>
 
 </html>

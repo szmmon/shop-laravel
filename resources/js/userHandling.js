@@ -14,7 +14,8 @@ $(".test-btn").click(function () {
             if (window.location.href.includes("users")) {
                 $.ajax({
                     method: "DELETE",
-                    url: "http://shop.test/users/" + $(this).data("id"),
+                    // url: "http://shop.test/users/" + $(this).data("id"),
+                    url: deleteUrl + $(this).data("id"),
                     // data: {$id = },
                 })
                     .done(function (data) {
