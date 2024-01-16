@@ -30,10 +30,13 @@
   {{$users->links()}}
   </div>
 
-      @section('js')
+      @section('javascript')
+      const deleteUrl = "{{url('users')}}/";
       @endsection
-      
+
       @section('js-files')
+          <!-- dropdown wont work without this linking  -->
+          <script src="{{ asset('js/app.js') }}" ></script> 
           <script src={{ asset('js/userHandling.js') }}></script>
       @endsection
 
