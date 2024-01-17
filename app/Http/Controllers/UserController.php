@@ -7,6 +7,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -69,6 +70,8 @@ class UserController extends Controller
         // throw new Exception();
         try {
         $user->delete();
+        Session::flash('status', 'User deleted');
+
         return response()->json(
             ['status'=> 'success']
         );

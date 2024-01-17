@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
     <div class="row">
+    @include('helpers.flash-messages')
         <div class="col-10">Products list </div>
         <div class="col-2 float-right">
             <a href="{{route('products.create')}}" class='float-right'>

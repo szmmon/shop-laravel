@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 use Exception;
 
 
@@ -47,7 +49,7 @@ class ProductController extends Controller
         $product->image_path = $request->file(key:'image')->store(path:'products');
                 }
         $product->save();
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('status', 'Product stored');
         }
 
     /**
@@ -83,7 +85,7 @@ class ProductController extends Controller
                 $product->image_path = $request->file(key:'image')->store(path:'products');
         }
         $product->save();
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('status', 'Product updated');;
 
     }
 
@@ -94,6 +96,7 @@ class ProductController extends Controller
     {
         try {
         $product->delete();
+        Session::flash('status', 'Product deleted');
         return response()->json(
             ['status'=> 'success']
         );

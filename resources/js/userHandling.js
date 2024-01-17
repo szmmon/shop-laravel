@@ -33,7 +33,7 @@ $(".test-btn").click(function () {
             } else if (window.location.href.includes("products")) {
                 $.ajax({
                     method: "DELETE",
-                    url: "http://shop.test/products/" + $(this).data("id"),
+                    url: deleteUrl + $(this).data("id"),
                     // data: {$id = },
                 })
                     .done(function (data) {
@@ -41,7 +41,6 @@ $(".test-btn").click(function () {
                         window.location.reload();
                     })
                     .fail(function (data) {
-                        console.log(data);
                         Swal.fire(
                             "Failed!",
                             "internal server error occured",

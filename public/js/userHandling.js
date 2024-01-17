@@ -58381,13 +58381,12 @@ $(".test-btn").click(function () {
       } else if (window.location.href.includes("products")) {
         $.ajax({
           method: "DELETE",
-          url: "http://shop.test/products/" + $(_this).data("id")
+          url: deleteUrl + $(_this).data("id")
           // data: {$id = },
         }).done(function (data) {
           // Swal.fire("Deleted!", "User has been deleted.", "success");
           window.location.reload();
         }).fail(function (data) {
-          console.log(data);
           Swal.fire("Failed!", "internal server error occured", "error");
         });
       }

@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+  <div class="row">
+      @include('helpers.flash-messages')
+  </div>
   <div class="container">
   <table class="table table-hover">
     <thead>
