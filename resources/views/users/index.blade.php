@@ -24,7 +24,7 @@
         <td>{{$user->name}}</td>
         <td>{{$user->surname}}</td>
         <td>{{$user->phone_number}}</td>
-        <td><button class="btn btn-danger sm test-btn" data-id="{{$user->id}}">x</button></td>
+        <td><button class="btn btn-danger sm test-btn" data-id="{{$user->id}}"><i class="fa-solid fa-trash"></i></button></td>
 
       </tr>
       @endforeach

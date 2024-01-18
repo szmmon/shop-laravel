@@ -8,11 +8,11 @@
         <div class="col-10">Products list </div>
         <div class="col-2 float-right">
             <a href="{{route('products.create')}}" class='float-right'>
-                <button class="btn btn-primary">Add product</button>
+                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
             </a>
-            <a href="{{route('products.test1')}}" class='float-right'>
+            <!-- <a href="{{route('products.test1')}}" class='float-right'>
                 <button class="btn btn-primary">Add test</button>
-            </a>
+            </a> -->
         </div>
     </div>
     <div class="row">
@@ -38,9 +38,9 @@
         <td>{{$product->price}}</td>
         <td>
         @if($product->hasCategory()){{$product->category->name}}@endif</td>
-        <td><a href="{{route('products.edit', $product->id)}}"><button class="btn btn-secondary sm">E</button></a>
-        <a href="{{route('products.show', $product->id)}}"><button class="btn btn-success sm">S</button></a>
-        <button class="btn btn-danger sm test-btn" data-id="{{$product->id}}">x</button></td>
+        <td><a href="{{route('products.edit', $product->id)}}"><button class="btn btn-secondary sm"><i class="fa-solid fa-pen-to-square"></i></button></a>
+        <a href="{{route('products.show', $product->id)}}"><button class="btn btn-success sm"><i class="fa-solid fa-magnifying-glass"></i></button></a>
+        <button class="btn btn-danger sm test-btn" data-id="{{$product->id}}"><i class="fa-solid fa-trash"></i></button></td>
 
         </tr>
         @endforeach
