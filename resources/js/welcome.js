@@ -13,6 +13,51 @@ $(function () {
     // });
     //dropdown dont work
 
+    //cart add
+    $(".add-cart-btn").click(function (event) {
+        // event.preventDefault();
+        // console.log("works");
+
+        $.ajax({
+            method: "POST",
+            url: WELCOME_DATA.addToCart + $(this).data("id"),
+        })
+            .done(function (data) {
+                Swal.fire({
+                    title: "Added to cart!",
+                    text: "Product has been added to cart.",
+                    icon: "success",
+                    showCancelButton: true,
+                    confirmButtonText:
+                        '<i class="fa-solid fa-cart-shopping"></i> Go to cart',
+                    cancelButtonText:
+                        '<i class="fa-solid fa-shop"></i> Continue shopping',
+                })
+                    // window.location.reload();
+                    .then((result) => {
+                        // console.log($(this).data("id"));
+                        if (result.isConfirmed) {
+                            alert("ok");
+                        }
+                    });
+            })
+            .fail(function (data) {
+                console.log(data.status);
+                if (data.status == 401) {
+                    Swal.fire({
+                        title: "Failed to add to cart!",
+                        text: "Log in or register to proceed.",
+                        icon: "error",
+                        showCancelButton: true,
+                        confirmButtonText:
+                            '<i class="fa-solid fa-user-plus"></i>Log in',
+                        cancelButtonText:
+                            '<i class="fa-solid fa-shop"></i> Continue shopping',
+                    });
+                } else Swal.fire("Failed!", "internal server error occured", "error");
+            });
+    });
+
     // function getProducts() {
     $("#filter-button").click(function () {
         const form = $("form.sidebar-filter").serialize();
@@ -62,8 +107,8 @@ $(function () {
 
     function getImage(product) {
         if (!!product.image_path) {
-            return storagePath + "/" + product.image_path;
+            return WELCOME_DATA.storagePath + "/" + product.image_path;
         }
-        return defaultImage;
+        return WELCOME_DATA.defaultImage;
     }
 });

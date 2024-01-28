@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\CartController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -44,6 +45,8 @@ Route::middleware(['auth', 'verified'])->group(function(){
         Route::delete('/users/{user}', [UserController::class, 'destroy']);
     }); 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');  
+    Route::get('/cart/list', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index');  
+    Route::post('/cart/{product}', [App\Http\Controllers\CartController::class, 'store'])->name('cart.store');  
 });
 
 

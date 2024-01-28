@@ -54,6 +54,7 @@
                                          PLN {{$product->price}}</i>
                                     </h5>
                                 </div>
+                                    <button class="btn btn-success btn-sm add-cart-btn" data-id="{{$product->id}}"><i class="fa-solid fa-cart-shopping"></i> Add to cart</button>
                                 </div>
                             </div>
                     @endforeach
@@ -111,11 +112,12 @@
             </div>
       @section('javascript')
 
-      const storagePath = '{{asset('storage')}}';
-      const defaultImage = '{{'defaultImage'}}';
-      
+      const WELCOME_DATA = {
+           storagePath: '{{asset('storage')}}',
+           defaultImage: '{{'defaultImage'}}',
+           addToCart: ' {{ url('cart') }}/'
+      }
       @endsection
-
       @section('js-files')
           <script src="{{ asset('js/app.js') }}" defer ></script>
           <script src={{ asset('js/welcome.js') }}></script>
