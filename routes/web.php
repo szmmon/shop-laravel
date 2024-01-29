@@ -39,6 +39,7 @@ Route::middleware(['auth', 'verified'])->group(function(){
         Route::post('/products', [ProductController::class, 'store'])->name('products.store'); 
         Route::post('/products/{product}', [ProductController::class, 'update'])->name('products.update'); 
         Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+        Route::get('/products/{product}/download', [ProductController::class, 'downloadImage'])->name('products.downloadImage');
         
             //middleware auth daje nam weryfikacje czy user jest zalogowany, żeby moc wyswietlic liste
         Route::get('/users/list', [UserController::class, 'index']); 

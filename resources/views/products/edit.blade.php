@@ -98,15 +98,17 @@
                                     </span>
                                 @enderror
 
-                            <div class="row mb-3">
+                            <div class=" offset-md-1 row mb-3">
                             @if(!is_null($product->image_path))
+                            <a href="{{ route('products.downloadImage', $product->id) }}">
                                 <img src="{{asset('storage/' . $product->image_path)}}" alt="No product image" lass="img-thumbnail mx-auto d-block">
+                            </a>
                             @endif
 
                             </div>
                         </div>
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="row mb-0 float-right">
+                            <div class="col offset-md-10">
                                 <button type="submit" class="btn btn-primary">
                                     Save product
                                 </button>
