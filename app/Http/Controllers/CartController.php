@@ -19,6 +19,10 @@ class CartController extends Controller
             'cart' => Session::get('cart', new Cart())
         ]);
     }
+     public function test()
+    {
+        dd(Session::get('cart', new Cart()));
+    }   
 
 
     public function store(Product $product)
@@ -31,4 +35,23 @@ class CartController extends Controller
             'status' => 'success'
         ]);
         }
+
+        public function destroy(Product $product)
+    {
+        // try {
+        $cart = Session::get('cart', new Cart());
+        Session::put('cart', $cart->removeItem($product));
+        Session::flash('status', 'Product deleted');
+        return response()->json(
+            ['status'=> 'success']
+        );
+            
+        // } catch (\Exception $e) {
+        // return response()->json(
+        //     ['status'=> 'error',
+        //     'message'=>'Serverside error occured']
+        // )->setStatusCode(500);
+            
+        // }
+    }
 }

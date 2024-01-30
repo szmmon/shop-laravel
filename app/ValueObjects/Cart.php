@@ -19,6 +19,12 @@ class Cart {
         return $this->items;
     }
 
+    public function getSum() {
+        return $this->items->sum(function ($item){
+            return $item->getSum();
+        });
+    }
+
     public function addItem(Product $product){
 
         $items = $this->items;
@@ -38,5 +44,13 @@ class Cart {
         $items->add($newItem);
 
         return new Cart($items);
+    }
+    public function removeItem(Product $product){
+        $items = $this->items->reject(function($item) use ($product){
+            return $product->id == $item->getId(); 
+            //znajdujemy obiekt w kolekcji i go usuwamy, potem podbijamy wartosc ilosci i za ifem tworzymy nowy obiekt z zaaktualizowana iloscia
+        });
+        return new Cart($items);
+
     }
 }

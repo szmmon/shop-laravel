@@ -1,6 +1,7 @@
 //ten import rozjebany daje error: Uncaught Error: Cannot find module 'path'
 // import { response } from "express";
 
+import { redirect } from "statuses";
 import "./bootstrap";
 
 $(function () {
@@ -37,7 +38,7 @@ $(function () {
                     .then((result) => {
                         // console.log($(this).data("id"));
                         if (result.isConfirmed) {
-                            alert("ok");
+                            window.location = WELCOME_DATA.addToCart;
                         }
                     });
             })

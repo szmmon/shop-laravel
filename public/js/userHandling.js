@@ -58358,7 +58358,7 @@ $(".test-btn").click(function () {
   var _this = this;
   Swal.fire({
     title: "Are you sure?",
-    text: "You will not be able to recover this user!",
+    text: "You will not be able to recover this record!",
     icon: "warning",
     showCancelButton: true,
     confirmButtonText: "Yes, delete it!",
@@ -58385,6 +58385,16 @@ $(".test-btn").click(function () {
           // data: {$id = },
         }).done(function (data) {
           // Swal.fire("Deleted!", "User has been deleted.", "success");
+          window.location.reload();
+        }).fail(function (data) {
+          Swal.fire("Failed!", "internal server error occured", "error");
+        });
+      } else if (window.location.href.includes("cart")) {
+        $.ajax({
+          method: "DELETE",
+          url: WELCOME_DATA.addToCart + $(_this).data("id")
+          // data: {$id = },
+        }).done(function (data) {
           window.location.reload();
         }).fail(function (data) {
           Swal.fire("Failed!", "internal server error occured", "error");

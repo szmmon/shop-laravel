@@ -56,8 +56,8 @@
       @endsection
 
       @section('js-files')
-          <script src="{{ asset('js/app.js') }}" ></script>
           <script src={{ asset('js/userHandling.js') }}></script>
+          <script src="{{ asset('js/app.js') }}" ></script>
       @endsection
 
 
