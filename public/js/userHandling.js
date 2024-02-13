@@ -3025,9 +3025,14 @@ __webpack_require__.r(__webpack_exports__);
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 try {
-  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
   window.Popper = __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/index.js");
   window.bootstrap = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+  window.$.ajaxSetup({
+    headers: {
+      "X-CSRF-TOKEN": $('meta[name = "csrf-token"f]').attr("content")
+    }
+  });
 } catch (e) {}
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/dist/browser/axios.cjs");
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
@@ -58387,7 +58392,7 @@ $(".test-btn").click(function () {
           // Swal.fire("Deleted!", "User has been deleted.", "success");
           window.location.reload();
         }).fail(function (data) {
-          Swal.fire("Failed!", "internal server error occured", "error");
+          Swal.fire("Failed!", data.responseJSON.message, "error");
         });
       } else if (window.location.href.includes("cart")) {
         $.ajax({

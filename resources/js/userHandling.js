@@ -43,7 +43,7 @@ $(".test-btn").click(function () {
                     .fail(function (data) {
                         Swal.fire(
                             "Failed!",
-                            "internal server error occured",
+                            data.responseJSON.message,
                             "error"
                         );
                     });

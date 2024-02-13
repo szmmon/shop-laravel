@@ -42,7 +42,9 @@ Route::middleware(['auth', 'verified'])->group(function(){
         Route::get('/products/{product}/download', [ProductController::class, 'downloadImage'])->name('products.downloadImage');
         
             //middleware auth daje nam weryfikacje czy user jest zalogowany, żeby moc wyswietlic liste
-        Route::get('/users/list', [UserController::class, 'index']); 
+        Route::get('/users/list', [UserController::class, 'index'])->name('user.list'); 
+        Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit'); 
+        Route::post('/users/update/{user}', [UserController::class, 'update'])->name('users.update'); 
         Route::delete('/users/{user}', [UserController::class, 'destroy']);
     }); 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');  
