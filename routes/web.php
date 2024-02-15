@@ -4,6 +4,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -40,13 +41,19 @@ Route::middleware(['auth', 'verified'])->group(function(){
         Route::post('/products/{product}', [ProductController::class, 'update'])->name('products.update'); 
         Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
         Route::get('/products/{product}/download', [ProductController::class, 'downloadImage'])->name('products.downloadImage');
+
         
-            //middleware auth daje nam weryfikacje czy user jest zalogowany, żeby moc wyswietlic liste
+        
+        //middleware auth daje nam weryfikacje czy user jest zalogowany, żeby moc wyswietlic liste
         Route::get('/users/list', [UserController::class, 'index'])->name('user.list'); 
         Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit'); 
         Route::post('/users/update/{user}', [UserController::class, 'update'])->name('users.update'); 
         Route::delete('/users/{user}', [UserController::class, 'destroy']);
     }); 
+
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');  
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');  
     Route::get('/cart/test', [CartController::class, 'test'])->name('cart.test');  

@@ -3043,7 +3043,7 @@ try {
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
   window.$.ajaxSetup({
     headers: {
-      "X-CSRF-TOKEN": $('meta[name = "csrf-token"f]').attr("content")
+      "X-CSRF-TOKEN": $('meta[name = "csrf-token"]').attr("content")
     }
   });
 } catch (e) {}
