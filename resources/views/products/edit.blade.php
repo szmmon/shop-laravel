@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">Name</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end"></label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$product->name}}"  autocomplete="name" autofocus>
@@ -108,7 +108,6 @@
                             </div>
                         </div>
                         <div class="row mb-0 float-right">
-                            <div class="col offset-md-10">
                                 <button type="submit" class="btn btn-primary">
                                     Save product
                                 </button>
