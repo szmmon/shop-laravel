@@ -9,7 +9,10 @@
                       <div class="col-12">
                         <div class="dropdown text-md-left text-center float-md-left mb-3 mt-3 mt-md-0 mb-md-0">
                           <label class="mr-2">Sort by:</label>
-                          <a class="btn btn-lg btn-light dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relevance <span class="caret"></span></a>
+                          <button class="btn btn-secondary dropdown-toggle btn-lg btn-light " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Relevance
+                            <span class="caret"></span>
+                            </button>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown" x-placement="bottom-start" style="position: absolute; transform: translate3d(71px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
                             <a class="dropdown-item" href="#">Relevance</a>
                             <a class="dropdown-item" href="#">Price Descending</a>
@@ -24,8 +27,11 @@
                       
 
                         <div class="dropdown float-right">
-                          <a class="btn btn-lg btn-light dropdown-toggle products-actual-count" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">2 <span class="caret"></span></a>
-                          <div class="dropdown-menu dropdown-menu-right products-count" aria-labelledby="navbarDropdown" x-placement="bottom-end" style="will-change: transform; position: absolute; transform: translate3d(120px, 48px, 0px); top: 0px; left: 0px;">
+                          <button class="btn btn-secondary dropdown-toggle btn-lg btn-light " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              3
+                            <span class="caret"></span>
+                            </button>
+                          <div class="dropdown-menu dropdown-menu-right products-count" aria-labelledby="dropdownMenuButton" x-placement="bottom-end" style="will-change: transform; position: absolute; transform: translate3d(120px, 48px, 0px); top: 0px; left: 0px;">
                             <a class="dropdown-item" href="#">4</a>
                             <a class="dropdown-item" href="#">8</a>
                             <a class="dropdown-item" href="#">12</a>
@@ -61,7 +67,7 @@
                         </div>
                     <div class="row sorting mb-5 mt-5">
                       <div class="col-12">
-                        <a class="btn btn-light">
+                        <a  href="{{url()->current()}}"class="btn btn-light">
                           <i class="fas fa-arrow-up mr-2"></i> Back to top</a>
                         <div class="btn-group float-md-right ml-3">
                           <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-left"></span> </button>
@@ -69,7 +75,10 @@
 
                         </div>
                         <div class="dropdown float-md-right">
-                          <a class="btn btn-lg btn-light dropdown-toggle products-actual-count" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">2 <span class="caret"></span></a>
+                          <button class="btn btn-secondary dropdown-toggle btn-lg btn-light " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              3
+                            <span class="caret"></span>
+                            </button>
                           <div class="dropdown-menu dropdown-menu-right products-count" aria-labelledby="navbarDropdown" x-placement="bottom-end" style="will-change: transform; position: absolute; transform: translate3d(120px, 48px, 0px); top: 0px; left: 0px;">
                             <a class="dropdown-item" href="#">4</a>
                             <a class="dropdown-item" href="#">8</a>

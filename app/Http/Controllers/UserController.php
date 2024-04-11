@@ -72,7 +72,7 @@ class UserController extends Controller
         }
 
         $user->address()->save($address); 
-        return redirect(route('user.list'))->with('status', 'user updated');;
+        return redirect(route('user.list'))->with('status', 'user info updated');;
     }
 
     /**

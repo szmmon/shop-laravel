@@ -41,7 +41,6 @@
         <td><a href="{{route('products.edit', $product->id)}}"><button class="btn btn-secondary sm"><i class="fa-solid fa-pen-to-square"></i></button></a>
         <a href="{{route('products.show', $product->id)}}"><button class="btn btn-success sm"><i class="fa-solid fa-magnifying-glass"></i></button></a>
         <button class="btn btn-danger sm test-btn" data-id="{{$product->id}}"><i class="fa-solid fa-trash"></i></button></td>
-
         </tr>
         @endforeach
     </tbody>

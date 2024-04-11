@@ -82,12 +82,11 @@ class ProductController extends Controller
      */
     public function update(StoreProductRequest $request, Product $product)
     {
+        
         $oldImagePath = $product->image_path;
         $product->fill($request->validated());
         if ($request->hasFile(key:'image')){
-                if (Storage::exists($oldImagePath)){
-                    Storage::delete($oldImagePath);
-                }
+
                 $product->image_path = $request->file(key:'image')->store(path:'products');
         }
         $product->save();

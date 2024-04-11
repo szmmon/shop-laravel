@@ -44,6 +44,7 @@ class Cart {
             $items = $items->reject(function($item) use ($product){
             return $product->id == $item->getId(); 
             //znajdujemy obiekt w kolekcji i go usuwamy, potem podbijamy wartosc ilosci i za ifem tworzymy nowy obiekt z zaaktualizowana iloscia
+            $this->removeItem($product);
         }); 
             $newItem = $item->addQuantity($product);
         }

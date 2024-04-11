@@ -28,23 +28,16 @@ Route::get('/', [WelcomeController::class, 'index']);
 
 Route::middleware(['auth', 'verified'])->group(function(){
     Route::middleware(['can:isAdmin'])->group(function(){
-
-    // Route::resource('products', ProductController::class); //dont work with post methods
         // //warstwa products
         Route::get('/products', [ProductController::class, 'index'])->name('products.index'); 
         Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show'); 
         Route::get('/products/edit/{product}', [ProductController::class, 'edit'])->name('products.edit'); 
-
         Route::get('/create', [ProductController::class, 'create'])->name('products.create'); 
-
         Route::post('/products', [ProductController::class, 'store'])->name('products.store'); 
         Route::post('/products/{product}', [ProductController::class, 'update'])->name('products.update'); 
         Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
         Route::get('/products/{product}/download', [ProductController::class, 'downloadImage'])->name('products.downloadImage');
-
         
-        
-        //middleware auth daje nam weryfikacje czy user jest zalogowany, żeby moc wyswietlic liste
         Route::get('/users/list', [UserController::class, 'index'])->name('user.list'); 
         Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit'); 
         Route::post('/users/update/{user}', [UserController::class, 'update'])->name('users.update'); 
@@ -62,18 +55,6 @@ Route::middleware(['auth', 'verified'])->group(function(){
 });
 
 
-// //warstwa products
-// Route::get('/products', [ProductController::class, 'index'])->name('products.index')->middleware('auth'); 
-// Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show')->middleware('auth'); 
-// Route::get('/products/edit/{product}', [ProductController::class, 'edit'])->name('products.edit')->middleware('auth'); 
-
-// Route::get('/create', [ProductController::class, 'create'])->name('products.create')->middleware('auth'); 
-// // Route::get('/products/create2', [ProductController::class, 'create2'])->name('products.create2')->middleware('auth'); 
-Route::get('/test1', [ProductController::class, 'test1'])->name('products.test1')->middleware('auth'); 
-
-// Route::post('/products', [ProductController::class, 'store'])->name('products.store')->middleware('auth'); 
-// Route::post('/products/{product}', [ProductController::class, 'update'])->name('products.update')->middleware('auth'); 
-// Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy')->middleware('auth');
 
 
 
