@@ -7,23 +7,28 @@ Shop web app, personal project made while learning the laravel framework.
 ## Selected features
 
 - Cart functionallity connected to orders database
-    demo:
+
+  demo:
 ![App Screenshot](https://github.com/szmmon/shop-laravel/blob/master/images/cart-add.gif)
 
 - Admin can add products
-    demo:
+
+  demo:
 ![App Screenshot](https://github.com/szmmon/shop-laravel/blob/master/images/prod-add.gif)
 
 - Admin can edit products
-    demo:
+
+  demo:
 ![App Screenshot](https://github.com/szmmon/shop-laravel/blob/master/images/prod-edit.gif)
 
 - Admin can delete products
-    demo:
+
+  demo:
 ![App Screenshot](https://github.com/szmmon/shop-laravel/blob/master/images/prod-del.gif)
 
 - Admin can edit users info and delete 
-    demo:
+
+  demo:
 ![App Screenshot](https://github.com/szmmon/shop-laravel/blob/master/images/edit-del-user.gif)
 
 ### Additional features
