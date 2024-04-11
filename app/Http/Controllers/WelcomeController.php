@@ -29,7 +29,7 @@ class WelcomeController extends Controller
             // if (!is_null($filters["price_max"])){
             // $query = $query->where('price', '< ' ,$filters["price_max"]);
             // } 
-            // ustawienie gornych widelek nie dziala
+            // fix
 
             return response()->json([
                 'data' => $query->get()

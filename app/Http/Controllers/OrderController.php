@@ -42,7 +42,7 @@ class OrderController extends Controller
         $order->price = $cart->getSum();
         $order->user_id = Auth::id();
         $order->save();
-
+        
         $productIds = $cart->getItems()->map(function($item){
             return ['product_id' => $item->getId()];
         });

@@ -12,12 +12,10 @@ $(function () {
     // $("a#filter-button").click(function () {
     //     getProducts($("a.products-actual-count").text());
     // });
-    //dropdown dont work
 
     //cart add
     $(".add-cart-btn").click(function (event) {
         // event.preventDefault();
-        // console.log("works");
 
         $.ajax({
             method: "POST",
@@ -69,11 +67,8 @@ $(function () {
             data: form,
         })
             .done(function (response) {
-                // console.log(response.data);
-                // alert("success");
                 $("div#products-wrapper").empty();
                 $.each(response.data, function (index, product) {
-                    console.log(product);
                     const html =
                         '<div class="col-6 col-md-6 col-lg-4 mb-3">' +
                         '<div class="card h-100 border-0">' +

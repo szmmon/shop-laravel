@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('css-files')
+    <link href="{{asset('css/welcome.css')}}" rel="stylesheet">
+    <!-- zeby nie ladowalo css dla kazdej strony tylko dla tego danego endpointa -->
 @section('content')
 <div class="container pt-5">
               <div class="row">
@@ -46,7 +48,8 @@
                                 <div class="card h-100 border-0">
                                 <div class="card-img-top">
                                 @if (!is_null($product->image_path))
-                                    <img src="{{asset('storage/' . $product->image_path )}}" class="img-fluid mx-auto d-block" alt="Product image">
+                                    <img src="{{asset('storage/' . $product->image_path )}}" 
+                                    class="col-12 img-fluid product_image" alt="Product image">
                                 @else
                                     <img src="{{$defaultImage}}" class="img-fluid mx-auto d-block" alt="Product image">
                                 @endif
@@ -114,7 +117,7 @@
                   
                   <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
                   
-                  <a href="#" class="btn btn-lg btn-block btn-primary mt-5" id="filter-button">Update Results</a>
+                  <a class="btn btn-lg btn-block btn-primary mt-5" id="filter-button">Update Results</a>
                 </form>
 
               </div>
@@ -132,4 +135,5 @@
           <script src={{ asset('js/welcome.js') }}></script>
       @endsection
 
+@endsection
 @endsection

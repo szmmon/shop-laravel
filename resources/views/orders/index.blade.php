@@ -14,6 +14,7 @@
     <thead>
         <tr>
         <th scope="col">#</th>
+        <th scope="col">User</th>
         <th scope="col">Quantity</th>
         <th scope="col">Price</th>
         <th scope="col">Products</th>
@@ -23,6 +24,7 @@
     <tbody>
         <tr>
         <td>{{$order->id}}</td>
+        <td>{{$order->user_id}}</td>
         <td>{{$order->quantity}}</td>
         <td>{{$order->price}}</td>
         <td>
